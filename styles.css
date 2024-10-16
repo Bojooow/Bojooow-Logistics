@@ -90,4 +90,8 @@ table th, table td {
     padding: 10px;
     margin-top: 10px;
     border-left: 4px solid #05599b;
+#background-audio {
+    display: none;
+
+
 }
