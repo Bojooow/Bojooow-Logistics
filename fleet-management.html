@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Fleet Management System</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <div class="container main">
+        <h2>Schedule and Route Planning</h2>
+        <form>
+            <label for="truck">Select Truck:</label>
+            <select id="truck">
+                <option value="truck1">Truck 1</option>
+                <option value="truck2">Truck 2</option>
+                <option value="truck3">Truck 3</option>
+            </select>
+
+            <label for="route">Route:</label>
+            <input type="text" id="route" placeholder="Enter route details">
+
+            <label for="schedule">Date & Time:</label>
+            <input type="datetime-local" id="schedule">
+
+            <button type="submit">Assign Route</button>
+        </form>
+
+        <h2>Current Schedule</h2>
+        <table>
+            <tr>
+                <th>Truck</th>
+                <th>Route</th>
+                <th>Date & Time</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>Truck 1</td>
+                <td>Fairview to Makati</td>
+                <td>2024-10-20 08:00 AM</td>
+                <td><button>Edit</button> <button>Delete</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
