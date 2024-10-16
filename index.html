@@ -57,10 +57,34 @@
                 <p><strong>Email:</strong> bojobayran@gmail.com</p>
             </div>
         </section>
+
+<audio id="background-audio" src="audio/background-music.mp3" autoplay loop>
+ 
+</audio>
+
     </div>
 
     <footer>
         <p>&copy; 2024 Bojooow Logistics. All Rights Reserved.</p>
     </footer>
+
+<button id="play-pause-button">Pause Music</button>
+
+<script>
+    const audio = document.getElementById('background-audio');
+    const playPauseButton = document.getElementById('play-pause-button');
+    
+    playPauseButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            playPauseButton.textContent = 'Pause Music';
+        } else {
+            audio.pause();
+            playPauseButton.textContent = 'Play Music';
+        }
+    });
+</script>
+
+
 </body>
 </html>
