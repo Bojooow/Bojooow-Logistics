@@ -1,97 +1,100 @@
 body {
-    font-family: "Roboto Condensed", sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #ffffff;
     color: #333;
-    margin: 0;
-    padding: 0;
 }
+
 header {
-    background: #000000;
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
     color: white;
-    padding: 10px 0;
+}
+
+header img {
+    height: 100px;
+}
+
+header p {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+nav {
+    background-color: #000000;
+    padding: 10px;
     text-align: center;
 }
-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-nav {
-    display: flex;
-    justify-content: center;
-    background: #000000;
-}
+
 nav a {
     color: white;
-    padding: 20px 50px;
+    margin: 0 15px;
     text-decoration: none;
-    text-transform: uppercase;
     font-weight: bold;
 }
+
 nav a:hover {
-    background: #033d6b;
+    text-decoration: underline;
 }
+
 .hero {
-    background-image: url('https://via.placeholder.com/1200x400');
+    background-image: url('images/hero-image.jpg');
     background-size: cover;
     background-position: center;
-    height: 600px;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    text-align: center;
-    font-size: 28px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
+
+.hero h2 {
+    font-size: 2.5em;
+}
+
 .container {
-    padding: 20px;
+    margin-top: 30px;
 }
-.service, .main {
-    background: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+.service img {
+    width: 100%; /* Makes the image responsive */
+    height: 200px; /* Fixed height for consistent image sizing */
+    object-fit: cover; /* Ensures the image covers the space without distortion */
+    border-radius: 10px; /* Round corners for a softer look */
 }
+
+.service h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
 footer {
-    background: #000000;
+    background-color: #000000;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px;
+    margin-top: 30px;
 }
-form {
-    display: flex;
-    flex-direction: column;
-}
-form label, form input, form select, form textarea, form button {
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-}
-form button {
-    background: #0779e4;
+
+#play-pause-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #000000;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
-form button:hover {
-    background: #05599b;
+
+#play-pause-button:hover {
+    background-color: #000000;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-table th, table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-.messages {
-    background: #e9f7fd;
-    padding: 10px;
+
+/* Additional Styles for Accessibility and User Experience */
+.error-message {
+    color: red;
     margin-top: 10px;
-    border-left: 4px solid #05599b;
-#background-audio {
-    display: none;
-
-
+    font-size: 14px;
 }

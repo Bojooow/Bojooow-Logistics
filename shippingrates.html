@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Rates - Bojooow Logistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f4f4f4; /* Light background for professionalism */
+            font-family: 'Arial', sans-serif; /* A clean, readable font */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background: #fff; /* White background for the container */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #000000; /* J&T's branding color */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 32px; /* Larger heading for emphasis */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc; /* Light border for the table */
+            padding: 15px; /* Increased padding for readability */
+            text-align: center;
+        }
+
+        th {
+            background: #000000; /* Header background color */
+            color: #fff; /* White text for contrast */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Zebra stripes for rows */
+        }
+
+        tr:hover {
+            background-color: #e2e2e2; /* Highlight on hover */
+        }
+
+        .back-button {
+            display: block;
+            width: 100%;
+            padding: 12px; /* Increased padding for better button size */
+            background: #000000; /* J&T's primary color */
+            color: #fff; /* White text for contrast */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+            font-size: 18px; /* Slightly larger font for readability */
+        }
+
+        .back-button:hover {
+            background: #005f70; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shipping Rates</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Service Type</th>
+                    <th>Delivery Time</th>
+                    <th>Metro Manila</th>
+                    <th>Provincial</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Standard Shipping</td>
+                    <td>3-5 Days</td>
+                    <td>₱100.00</td>
+                    <td>₱150.00</td>
+                </tr>
+                <tr>
+                    <td>Express Shipping</td>
+                    <td>1-2 Days</td>
+                    <td>₱200.00</td>
+                    <td>₱250.00</td>
+                </tr>
+                <tr>
+                    <td>Next Day Delivery</td>
+                    <td>1 Day</td>
+                    <td>₱300.00</td>
+                    <td>₱400.00</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="back-button" onclick="location.href='index.html'">Back</button> <!-- Back Button -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Bojooow Logistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #000000; /* Light background for professionalism */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+
+        .signup-container {
+            background: #fff; /* White background for contrast */
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Fixed width for consistency */
+        }
+
+        .signup-container img {
+            max-width: 300px; /* Logo size */
+            margin-bottom: 20px;
+        }
+
+        .signup-container h1 {
+            color: #000000; /* Darker text for readability */
+            font-size: 28px; /* Reduced size for a cleaner look */
+            margin-bottom: 20px;
+        }
+
+        .signup-container input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc; /* Border for inputs */
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .signup-container input:focus {
+            border-color: #007a8c; /* Highlight border on focus */
+            outline: none;
+        }
+
+        .signup-container button {
+            background: #000000; /* Button color */
+            color: #fff; /* White text for contrast */
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .signup-container button:hover {
+            background: #005f70; /* Darker shade on hover */
+        }
+
+        /* Accessibility Styles */
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .back-button {
+            background: #000000; /* Black color for the Back button */
+            color: #fff; /* White text for contrast */
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 10px; /* Space above the Back button */
+        }
+
+        .back-button:hover {
+            background: #005f70; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <img src="images/logo.png" alt="Bojooow Logistics Logo"> <!-- Logo Placeholder -->
+        <h1>Sign Up</h1>
+        <form action="index.html" method="post">
+            <input type="text" placeholder="Username" required aria-label="Username">
+            <input type="email" placeholder="Email" required aria-label="Email">
+            <input type="password" placeholder="Password" required aria-label="Password">
+            <button type="submit">Sign Up</button>
+            <div class="error-message" id="error-message" style="display: none;"></div> <!-- Error message -->
+        </form>
+        <button class="back-button" onclick="location.href='index.html'">Back</button> <!-- Back Button -->
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const username = document.querySelector('input[type="text"]').value;
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Basic validation (add more complex validation as needed)
+            if (username === "" || email === "" || password === "") {
+                e.preventDefault(); // Stop form from submitting
+                errorMessage.textContent = "All fields are required."; // Display error message
+                errorMessage.style.display = 'block'; // Show error message
+            } else {
+                // Proceed with the submission (you can add additional checks here)
+                return true;
+            }
+        });
+    </script>
+</body>
+</html>
