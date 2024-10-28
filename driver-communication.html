@@ -55,20 +55,31 @@
             border: none;
         }
         .btn-primary:hover {
-            background-color: #000000;
+            background-color: #333;
         }
-        .messages {
+        .chat-container {
+            max-height: 400px;
+            overflow-y: auto;
             margin-top: 20px;
-            background-color: #f9f9f9;
-            padding: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            border-left: 5px solid #ff3232;
+            background-color: #f9f9f9;
         }
-        .messages strong {
-            font-size: 1.2em;
+        .chat-bubble {
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 80%;
         }
-        .messages p {
-            margin: 5px 0;
+        .client-message {
+            background-color: #d1e7ff;
+            align-self: flex-start;
+        }
+        .driver-message {
+            background-color: #e2ffe2;
+            align-self: flex-end;
+            text-align: right;
         }
         footer {
             background-color: #000000;
@@ -76,6 +87,10 @@
             text-align: center;
             padding: 20px;
             margin-top: 30px;
+        }
+        .message-code {
+            font-size: 0.85em;
+            color: #888;
         }
     </style>
 </head>
@@ -89,28 +104,29 @@
     </header>
 
     <div class="container">
-        <h2>Send Route Updates</h2>
-        <form>
-            <label for="driver">Select Driver:</label>
-            <select id="driver" class="form-select">
-                <option value="driver1">Driver 1</option>
-                <option value="driver2">Driver 2</option>
-            </select>
+        <h2>Parcel Location Update Chat</h2>
 
-            <label for="message">Message:</label>
-            <textarea id="message" class="form-control" rows="5" placeholder="Enter your message here..."></textarea>
+        <!-- Chat display area -->
+        <div class="chat-container d-flex flex-column">
+            <div class="chat-bubble client-message">
+                <p>Good morning, Sir Joselito F. Bayran/Driver 1, May I know the current location of my parcel?</p>
+                <span class="message-code">Message Code: CL-001 | Sent at 08:30 AM</span>
+            </div>
 
-            <button type="submit" class="btn btn-primary">Send Update</button>
-        </form>
+            <div class="chat-bubble driver-message">
+                <p>Good morning! The parcel is currently at Taguig City, heading to your area.</p>
+                <span class="message-code">Message Code: DR-001 | Sent at 08:32 AM</span>
+            </div>
 
-        <h2>Message Log</h2>
-        <div class="messages">
-            <strong>To: Driver 1</strong><br>
-            <p>Route change to avoid roadworks on Main St.</p>
-            <span>Sent at 08:30 AM, Oct 16, 2024</span>
+            <!-- Additional messages go here -->
         </div>
 
-        <!-- Add more messages as needed -->
+        <!-- Message input form -->
+        <form>
+            <label for="message">Type your message:</label>
+            <textarea id="message" class="form-control" rows="3" placeholder="Enter your message here..."></textarea>
+            <button type="submit" class="btn btn-primary mt-2">Send Message</button>
+        </form>
     </div>
 
     <footer>

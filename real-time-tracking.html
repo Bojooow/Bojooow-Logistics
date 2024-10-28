@@ -6,6 +6,7 @@
     <title>Real-Time Tracking</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <style>
         body {
             font-family: 'Roboto Condensed', sans-serif;
@@ -40,19 +41,11 @@
             flex-wrap: wrap;
             gap: 20px;
         }
-        .map {
+        #map {
             flex: 2;
-            background-color: #e0e0e0;
             height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border-radius: 10px;
             border: 2px solid #ccc;
-        }
-        .map p {
-            font-size: 1.2em;
-            color: #666;
         }
         .status {
             flex: 1;
@@ -85,15 +78,13 @@
 
     <div class="container">
         <div class="tracking">
-            <!-- Placeholder for Map -->
-            <div class="map">
-                <p>Map displaying live truck locations will appear here.</p>
-            </div>
+            <!-- Map Container -->
+            <div id="map"></div>
             <!-- Truck Status Info -->
             <div class="status">
                 <h3>Truck Status</h3>
-                <p><strong>Truck:</strong> 1</p>
-                <p><strong>Location:</strong> Near EDSA, Quezon City</p>
+                <p><strong>Driver:</strong> Joselito F. Bayran</p>
+                <p><strong>Location:</strong>Taguig City</p>
                 <p><strong>Estimated Arrival:</strong> 10:00 AM</p>
             </div>
         </div>
@@ -102,6 +93,38 @@
     <footer>
         <p>&copy; 2024 Bojooow Logistics. All Rights Reserved.</p>
     </footer>
+
+    <!-- Include Leaflet JS library -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        // Initialize map centered on Taguig City
+        var map = L.map('map').setView([14.5176, 121.0509], 13); // Coordinates for Taguig City
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Placeholder for truck marker
+        var truckMarker = L.marker([14.5176, 121.0509]).addTo(map)
+            .bindPopup('<b>Joselito F. Bayran</b><br>Currently At Taguig City.')
+            .openPopup();
+
+        // Example function to simulate truck movement
+        function updateTruckLocation(lat, lng) {
+            truckMarker.setLatLng([lat, lng]).update();
+            truckMarker.bindPopup('<b>Joselito F. Bayran</b><br>Updated location.').openPopup();
+            map.panTo([lat, lng]);
+        }
+
+        // Simulate truck movement (example with setInterval, replace with real API calls for actual tracking)
+        setInterval(function() {
+            // Sample updated coordinates (in reality, replace with dynamic values from server or GPS)
+            var newLat = 14.5176 + (Math.random() - 0.5) / 100;
+            var newLng = 121.0509 + (Math.random() - 0.5) / 100;
+            updateTruckLocation(newLat, newLng);
+        }, 5000); // Updates every 5 seconds
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
