@@ -70,59 +70,107 @@
             background: #005f70; /* Darker shade on hover */
         }
 
-        .back-button {
-            background: #007a8c; /* Color for the Back button */
-            color: #fff; /* White text for contrast */
-            font-size: 18px;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            text-align: center; /* Center text */
-            margin-bottom: 20px; /* Space below the Back button */
+        .toggle-button {
+            margin-top: 10px;
+            background: #007a8c; /* Color for toggle button */
         }
 
-        .back-button:hover {
+        .toggle-button:hover {
             background: #005f70; /* Darker shade on hover */
         }
 
-        /* Accessibility Styles */
+        .go-to-website-button {
+            margin-top: 10px;
+            background: #007a8c; /* Color for the "Go to Website" button */
+        }
+
+        .go-to-website-button:hover {
+            background: #005f70; /* Darker shade on hover */
+        }
+
         .error-message {
             color: red;
             margin-top: 10px;
             font-size: 14px;
+        }
+
+        .signup-section {
+            display: none; /* Hidden by default */
         }
     </style>
 </head>
 <body>
     <div class="login-container">
         <img src="images/logo.png" alt="Bojooow Logistics Logo"> <!-- Logo Placeholder -->
-        <h1>Login</h1>
-        <form action="index.html" method="post">
-            <input type="text" placeholder="Username" required aria-label="Username">
-            <input type="password" placeholder="Password" required aria-label="Password">
-            <button type="submit">Login</button>
-            <div class="error-message" id="error-message" style="display: none;"></div> <!-- Error message -->
-        </form>
-        <button class="back-button" onclick="location.href='index.html'">Back</button> <!-- Back Button -->
+        
+        <div class="login-section">
+            <h1>Login</h1>
+            <form id="login-form">
+                <input type="text" placeholder="Username" required aria-label="Username">
+                <input type="password" placeholder="Password" required aria-label="Password">
+                <button type="submit">Login</button>
+                <div class="error-message" id="login-error-message" style="display: none;"></div>
+            </form>
+        </div>
+
+        <div class="signup-section">
+            <h1>Sign Up</h1>
+            <form id="signup-form">
+                <input type="text" placeholder="Last Name" required aria-label="Last Name">
+                <input type="text" placeholder="First Name" required aria-label="First Name">
+                <input type="text" placeholder="Middle Name" aria-label="Middle Name">
+                <input type="number" placeholder="Age" required aria-label="Age" min="1">
+                <input type="email" placeholder="Email" required aria-label="Email">
+                <input type="text" placeholder="Username" required aria-label="Username">
+                <input type="password" placeholder="Password" required aria-label="Password">
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <button class="toggle-button" id="toggle-button">Switch to Sign Up</button>
+
+        <!-- New button for redirect -->
+        <button class="go-to-website-button" id="go-to-website-button">Home</button>
     </div>
 
     <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const username = document.querySelector('input[type="text"]').value;
-            const password = document.querySelector('input[type="password"]').value;
-            const errorMessage = document.getElementById('error-message');
-            
-            if (username === "admin" && password === "password") {
-                // Correct credentials, allow redirection
-                return true;
+        const toggleButton = document.getElementById('toggle-button');
+        const loginSection = document.querySelector('.login-section');
+        const signupSection = document.querySelector('.signup-section');
+
+        toggleButton.addEventListener('click', () => {
+            const isLoginVisible = loginSection.style.display !== 'none';
+            loginSection.style.display = isLoginVisible ? 'none' : 'block';
+            signupSection.style.display = isLoginVisible ? 'block' : 'none';
+            toggleButton.textContent = isLoginVisible ? 'Switch to Login' : 'Switch to Sign Up';
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual form submission
+
+            const username = document.querySelector('.login-section input[type="text"]').value;
+            const password = document.querySelector('.login-section input[type="password"]').value;
+            const errorMessage = document.getElementById('login-error-message');
+
+            if (username === "bojo" && password === "123") {
+                // Correct credentials, redirect after a short delay
+                setTimeout(function() {
+                    window.location.href = "index1.html"; // Redirect to index1.html
+                }, 1000); // Delay in milliseconds (1000ms = 1 second)
             } else {
-                e.preventDefault(); // Stop form from submitting
                 errorMessage.textContent = "Invalid Username or Password"; // Display error message
                 errorMessage.style.display = 'block'; // Show error message
             }
+        });
+
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual submission for this example
+            alert("Sign-up form submitted successfully!");
+        });
+
+        // Redirect to "index.html" when the "Go to Website" button is clicked
+        document.getElementById('go-to-website-button').addEventListener('click', function() {
+            window.location.href = "index.html";
         });
     </script>
 </body>

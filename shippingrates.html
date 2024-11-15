@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #f4f4f4; /* Light background for professionalism */
-            font-family: 'Arial', sans-serif; /* A clean, readable font */
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
         }
@@ -17,16 +17,46 @@
             max-width: 1200px;
             margin: auto;
             padding: 20px;
-            background: #fff; /* White background for the container */
+            background: #fff;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: #000000; /* J&T's branding color */
+            color: #000000;
             text-align: center;
             margin-bottom: 20px;
-            font-size: 32px; /* Larger heading for emphasis */
+            font-size: 32px;
+        }
+
+        .form-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select, input[type="checkbox"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
         }
 
         table {
@@ -36,81 +66,132 @@
         }
 
         th, td {
-            border: 1px solid #ccc; /* Light border for the table */
-            padding: 15px; /* Increased padding for readability */
+            border: 1px solid #ccc;
+            padding: 15px;
             text-align: center;
         }
 
         th {
-            background: #000000; /* Header background color */
-            color: #fff; /* White text for contrast */
+            background: #000000;
+            color: #fff;
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2; /* Zebra stripes for rows */
+            background-color: #f2f2f2;
         }
 
         tr:hover {
-            background-color: #e2e2e2; /* Highlight on hover */
+            background-color: #e2e2e2;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            padding: 12px 24px;
+            background: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background 0.3s ease;
+            font-size: 18px;
+        }
+
+        .action-button:hover {
+            background: #005f70;
         }
 
         .back-button {
             display: block;
             width: 100%;
-            padding: 12px; /* Increased padding for better button size */
-            background: #000000; /* J&T's primary color */
-            color: #fff; /* White text for contrast */
+            padding: 12px;
+            background: #000000;
+            color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             margin-top: 20px;
             transition: background 0.3s ease;
-            font-size: 18px; /* Slightly larger font for readability */
+            font-size: 18px;
         }
 
         .back-button:hover {
-            background: #005f70; /* Darker shade on hover */
+            background: #005f70;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Bojooow Logistics Shipping Rates</h1>
+        <h1>Bojooow Logistics Shipping Rates (Distance-Based)</h1>
+        <div class="form-section">
+            <div class="form-group">
+                <label for="origin">Origin</label>
+                <select id="origin" name="origin">
+                    <option value="">Select Province</option>
+                    <option value="province1">Province 1</option>
+                    <option value="province2">Province 2</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <select id="destination" name="destination">
+                    <option value="">Select City</option>
+                    <option value="city1">City 1</option>
+                    <option value="city2">City 2</option>
+                </select>  
+            </div>
+        </div>
         <table>
             <thead>
                 <tr>
-                    <th>Service Type</th>
-                    <th>Delivery Time</th>
-                    <th>Metro Manila</th>
-                    <th>Provincial</th>
-                    <th>Island</th> <!-- New column for Island rates -->
+                    <th>Distance (km)</th>
+                    <th>Standard Shipping</th>
+                    <th>Express Shipping</th>
+                    <th>Next Day Delivery</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Standard Shipping</td>
-                    <td>3-5 Days</td>
+                    <td>0-50 km</td>
                     <td>₱100.00</td>
                     <td>₱150.00</td>
-                    <td>₱200.00</td> <!-- Island rate for Standard Shipping -->
+                    <td>₱200.00</td>
                 </tr>
                 <tr>
-                    <td>Express Shipping</td>
-                    <td>1-2 Days</td>
+                    <td>51-100 km</td>
+                    <td>₱150.00</td>
                     <td>₱200.00</td>
                     <td>₱250.00</td>
-                    <td>₱300.00</td> <!-- Island rate for Express Shipping -->
                 </tr>
                 <tr>
-                    <td>Next Day Delivery</td>
-                    <td>1 Day</td>
+                    <td>101-200 km</td>
+                    <td>₱200.00</td>
+                    <td>₱250.00</td>
                     <td>₱300.00</td>
+                </tr>
+                <tr>
+                    <td>201-300 km</td>
+                    <td>₱250.00</td>
+                    <td>₱300.00</td>
+                    <td>₱350.00</td>
+                </tr>
+                <tr>
+                    <td>301+ km</td>
+                    <td>₱300.00</td>
+                    <td>₱350.00</td>
                     <td>₱400.00</td>
-                    <td>₱500.00</td> <!-- Island rate for Next Day Delivery -->
                 </tr>
             </tbody>
         </table>
-        <button class="back-button" onclick="location.href='index.html'">Back</button>
+        <div class="button-container">
+            <button class="action-button" onclick="alert('Calculating rates...')">Calculate Rate</button>
+        </div>
+        <button class="back-button" onclick="location.href='index1.html'">Back</button>
     </div>
 </body>
 </html>

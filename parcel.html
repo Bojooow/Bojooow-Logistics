@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Parcel - Bojooow Logistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .parcel-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .parcel-container h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .parcel-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .parcel-item {
+            background: #f1f1f1;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .parcel-item span {
+            font-weight: bold;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .go-to-home-button {
+            background-color: #000000;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+        }
+
+        .go-to-home-button:hover {
+            background-color: #005f70;
+        }
+
+        .details {
+            display: none; /* Initially hide the details */
+            margin-top: 15px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .details span {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        .details-button {
+            background-color: #000000;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .details-button:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="parcel-container">
+        <h1>Active Parcel</h1>
+        
+        <!-- Display Active Parcel with Reference Number -->
+        <ul class="parcel-list">
+            <li class="parcel-item">
+                <span>Parcel 1</span>
+                <span>Ref: #112233445566</span>
+            </li>
+        </ul>
+
+        <!-- Button to display details -->
+        <button class="details-button" onclick="toggleDetails()">View Details</button>
+
+        <!-- Additional details section (hidden initially) -->
+        <div class="details" id="parcel-details">
+            <span><strong>Driver:</strong> Joselito F. Bayran</span>
+            <span><strong>Route:</strong> Taguig City</span>
+            <span><strong>Recipient:</strong> Danica D. Dionela</span>
+            <span><strong>Sender:</strong> Mochi Batibot</span>
+        </div>
+
+        <!-- Error message if no active parcels -->
+        <div class="error-message" id="error-message" style="display: none;">
+            No active parcels available at the moment.
+        </div>
+
+        <!-- Button to go to the home page -->
+        <div class="button-container">
+            <a href="index1.html" class="go-to-home-button">Go to Website</a>
+        </div>
+    </div>
+
+    <script>
+        // Display error message if no parcels are available
+        const parcels = document.querySelectorAll('.parcel-item');
+        if (parcels.length === 0) {
+            document.getElementById('error-message').style.display = 'block';
+        }
+
+        // Function to toggle details visibility
+        function toggleDetails() {
+            const details = document.getElementById('parcel-details');
+            details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+</html>

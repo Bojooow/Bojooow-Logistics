@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-Time Tracking</title>
+    <title>Parcel Selection and Tracking</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
@@ -37,7 +37,7 @@
             max-width: 900px;
         }
         .tracking {
-            display: flex;
+            display: none;
             flex-wrap: wrap;
             gap: 20px;
         }
@@ -70,21 +70,35 @@
 <body>
 
     <header>
-        <h1>Real-Time Tracking</h1>
+        <h1>Parcel Tracking</h1>
         <nav>
-            <a href="index.html">Home</a>
+            <a href="index1.html">Home</a>
         </nav>
     </header>
 
     <div class="container">
-        <div class="tracking">
+        <!-- Parcel Selection Form -->
+        <div id="parcel-form">
+            <h2>Select Parcel</h2>
+            <form id="select-parcel-form">
+                <div class="mb-3">
+                    <label for="reference-number" class="form-label">Reference Number</label>
+                    <input type="text" class="form-control" id="reference-number" placeholder="Enter your reference number" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Track Parcel</button>
+            </form>
+        </div>
+
+        <!-- Tracking Section -->
+        <div class="tracking" id="tracking-section">
             <!-- Map Container -->
             <div id="map"></div>
             <!-- Truck Status Info -->
             <div class="status">
                 <h3>Truck Status</h3>
+                <p><strong>Reference Number:</strong> <span id="display-ref-number"></span></p>
                 <p><strong>Driver:</strong> Joselito F. Bayran</p>
-                <p><strong>Location:</strong>Taguig City</p>
+                <p><strong>Location:</strong> Taguig City</p>
                 <p><strong>Estimated Arrival:</strong> 10:00 AM</p>
             </div>
         </div>
@@ -97,6 +111,24 @@
     <!-- Include Leaflet JS library -->
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script>
+        document.getElementById('select-parcel-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const refNumber = document.getElementById('reference-number').value;
+    
+    // Check if the input contains any non-numeric characters
+    if (!/^\d+$/.test(refNumber)) {
+        alert('Error: Reference number can only contain numbers.');
+        return;
+    }
+
+    if (refNumber.trim() !== '') {
+        document.getElementById('parcel-form').style.display = 'none';
+        document.getElementById('tracking-section').style.display = 'flex';
+        document.getElementById('display-ref-number').textContent = refNumber;
+    }
+});
+
+
         // Initialize map centered on Taguig City
         var map = L.map('map').setView([14.5176, 121.0509], 13); // Coordinates for Taguig City
 
