@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #000000; /* Dark background for a professional look */
+            background-color: #000000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,22 +18,22 @@
         }
 
         .login-container {
-            background: #fff; /* White background for contrast */
+            background: #fff;
             padding: 40px;
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            width: 400px; /* Fixed width for consistency */
+            width: 400px;
         }
 
         .login-container img {
-            max-width: 300px; /* Logo size */
+            max-width: 300px;
             margin-bottom: 20px;
         }
 
         .login-container h1 {
-            color: #333; /* Darker text for readability */
-            font-size: 28px; /* Reduced size for a cleaner look */
+            color: #333;
+            font-size: 28px;
             margin-bottom: 20px;
         }
 
@@ -43,19 +43,19 @@
             padding: 10px;
             margin: 10px 0;
             font-size: 16px;
-            border: 1px solid #ccc; /* Border for inputs */
+            border: 1px solid #ccc;
             border-radius: 5px;
             transition: border-color 0.3s ease;
         }
 
         .login-container input:focus {
-            border-color: #007a8c; /* Highlight border on focus */
+            border-color: #007a8c;
             outline: none;
         }
 
         .login-container button {
-            background: #000000; /* Change button color */
-            color: #fff; /* White text for contrast */
+            background: #000000;
+            color: #fff;
             font-size: 18px;
             padding: 10px;
             width: 100%;
@@ -63,29 +63,29 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s ease;
-            margin-top: 10px; /* Space between buttons */
+            margin-top: 10px;
         }
 
         .login-container button:hover {
-            background: #005f70; /* Darker shade on hover */
+            background: #005f70;
         }
 
         .toggle-button {
             margin-top: 10px;
-            background: #007a8c; /* Color for toggle button */
+            background: #007a8c;
         }
 
         .toggle-button:hover {
-            background: #005f70; /* Darker shade on hover */
+            background: #005f70;
         }
 
         .go-to-website-button {
             margin-top: 10px;
-            background: #007a8c; /* Color for the "Go to Website" button */
+            background: #007a8c;
         }
 
         .go-to-website-button:hover {
-            background: #005f70; /* Darker shade on hover */
+            background: #005f70;
         }
 
         .error-message {
@@ -95,13 +95,13 @@
         }
 
         .signup-section {
-            display: none; /* Hidden by default */
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <img src="images/logo.png" alt="Bojooow Logistics Logo"> <!-- Logo Placeholder -->
+        <img src="images/logo.png" alt="Bojooow Logistics Logo">
         
         <div class="login-section">
             <h1>Login</h1>
@@ -128,8 +128,6 @@
         </div>
 
         <button class="toggle-button" id="toggle-button">Switch to Sign Up</button>
-
-        <!-- New button for redirect -->
         <button class="go-to-website-button" id="go-to-website-button">Home</button>
     </div>
 
@@ -146,31 +144,31 @@
         });
 
         document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent actual form submission
+            e.preventDefault();
 
             const username = document.querySelector('.login-section input[type="text"]').value;
             const password = document.querySelector('.login-section input[type="password"]').value;
             const errorMessage = document.getElementById('login-error-message');
 
-            if (username === "bojo" && password === "123") {
-                // Correct credentials, redirect after a short delay
-                setTimeout(function() {
-                    window.location.href = "index1.html"; // Redirect to index1.html
-                }, 1000); // Delay in milliseconds (1000ms = 1 second)
-            } else {
-                errorMessage.textContent = "Invalid Username or Password"; // Display error message
-                errorMessage.style.display = 'block'; // Show error message
-            }
+            setTimeout(() => {
+                if (username === "bojo" && password === "123") {
+                    window.location.href = "index1.html";
+                } else {
+                    errorMessage.textContent = "Invalid Username or Password";
+                    errorMessage.style.display = 'block';
+                }
+            }, 2000); // 2-second delay
         });
 
         document.getElementById('signup-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent actual submission for this example
+            e.preventDefault();
             alert("Sign-up form submitted successfully!");
         });
 
-        // Redirect to "index.html" when the "Go to Website" button is clicked
         document.getElementById('go-to-website-button').addEventListener('click', function() {
-            window.location.href = "index.html";
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500); // 1.5-second delay
         });
     </script>
 </body>
